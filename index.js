@@ -7,14 +7,28 @@ botmatic.onAction(".*", ({client, data}) => {
 
     if (res_jobs.length > 0 ) {
       resolve({data: {
-        "type": "Collection",
-        "items": res_jobs
+        caroussel: {
+          "type": "Collection",
+          "items": res_jobs
+        },
+        quick_replies: get_quick_replies(res_jobs.length)
       }, type: "data"});
     } else {
       resolve({data: "", type: "data"});
     }
   })
 })
+
+const get_quick_replies = (nb) => {
+  var res = "[";
+  var tab = []
+
+  for (var i = 0 ; i < nb ; i++ ) {
+    tab.push("Apply " + (nb+1))
+  }
+
+  return "[" + tab.join(" | ") + "]"
+}
 
 const get_jobs_by_title = (jobtitle = "no possible job", title) => {
 
@@ -79,20 +93,7 @@ const construct_item = (job, nb) => {
        //   "url": "Decline " + nb
        // }
 
-     ],
-
-     "buttons":[
-          {
-            "type":"web_url",
-            "url":"https://www.supinfo.com/articles/author/143787-nicolas-bonzom",
-            "title":"Mes autres articles"
-          },
-          {
-            "type":"postback",
-            "title":"Envoie d'un postback",
-            "payload":"monPostback"
-          }
-        ]
+     ]
    }
 }
 

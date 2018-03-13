@@ -77,16 +77,7 @@ const construct_item = (job, nb) => {
        "mediaType": "text/html",
        "url": job.url
        },
-       {
-            "content_type":"text",
-            "title":"Bleu",
-            "payload":"prefereCouleurBleu"
-          },
-          {
-            "content_type":"text",
-            "title":"Vert",
-            "payload":"prefereCouleurVert"
-          }
+       
        // {
        //     "type": "Button",
        //     "content": "Apply " + nb,

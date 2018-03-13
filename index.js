@@ -79,7 +79,20 @@ const construct_item = (job, nb) => {
        //   "url": "Decline " + nb
        // }
 
-     ]
+     ],
+
+     "buttons":[
+          {
+            "type":"web_url",
+            "url":"https://www.supinfo.com/articles/author/143787-nicolas-bonzom",
+            "title":"Mes autres articles"
+          },
+          {
+            "type":"postback",
+            "title":"Envoie d'un postback",
+            "payload":"monPostback"
+          }
+        ]
    }
 }
 

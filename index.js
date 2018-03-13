@@ -8,7 +8,7 @@ botmatic.onAction(".*", ({client, data}) => {
     if (res_jobs.length > 0 ) {
       resolve({data: {
         "type": "Collection",
-        "items": get_jobs_by_title(data.data.last_user_message)
+        "items": res_jobs
       }, type: "data"});
     } else {
       resolve({data: "", type: "data"});

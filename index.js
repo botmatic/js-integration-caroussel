@@ -35,7 +35,7 @@ const get_jobs_by_title = (jobtitle = "no possible job", title) => {
 
   final_res = final_res.slice(0, 3)
 
-  console.log(final_res.length)
+  console.log("final_res.length: " + final_res.length)
 
   return final_res
 }

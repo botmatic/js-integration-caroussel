@@ -12,12 +12,12 @@ botmatic.onAction(".*", ({client, data}) => {
           "items": res_jobs
         },
         quick_replies: get_quick_replies(res_jobs.length)
-      }}
+      }, type: "data"}
 
       console.log("resss")
       console.log(resss)
 
-      resolve(resss, type: "data"});
+      resolve(resss);
     } else {
       resolve({data: "", type: "data"});
     }

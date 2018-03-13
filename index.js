@@ -23,9 +23,13 @@ const get_quick_replies = (nb) => {
   var res = "[";
   var tab = []
 
+  console.log('QUICK REPLIES')
+
   for (var i = 0 ; i < nb ; i++ ) {
     tab.push("Apply " + (nb+1))
   }
+
+  console.log("[" + tab.join(" | ") + "]")
 
   return "[" + tab.join(" | ") + "]"
 }

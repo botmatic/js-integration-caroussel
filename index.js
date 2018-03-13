@@ -3,7 +3,7 @@ const botmatic = require('@botmatic/js-integration')({port: 5050})
 botmatic.onAction(".*", ({client, data}) => {
   console.log(data)
   return new Promise((resolve, reject) => {
-    var res_jobs = get_jobs_by_title(data.data.last_user_message);
+    var res_jobs = get_jobs_by_title(data.data.user['job title'], data.data.last_user_message);
 
     if (res_jobs.length > 0 ) {
       resolve({data: {
@@ -16,11 +16,13 @@ botmatic.onAction(".*", ({client, data}) => {
   })
 })
 
-const get_jobs_by_title = (title) => {
+const get_jobs_by_title = (jobtitle = "no possible job", title) => {
+
   var res = jobs.filter(j => {
     var regex1 = RegExp('.*'+(j.name)+'*', 'gi');
     var regex2 = RegExp('.*'+title+'*', 'gi');
-    return regex1.test(title) || regex2.test(j.name)
+    var regex3 = RegExp('.*'+jobtitle+'*', 'gi');
+    return (regex1.test(title) || regex2.test(j.name)) || (regex1.test(jobtitle) || regex3.test(j.name))
   })
 
   var final_res = []

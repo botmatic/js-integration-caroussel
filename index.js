@@ -3,10 +3,16 @@ const botmatic = require('@botmatic/js-integration')({port: 5050})
 botmatic.onAction(".*", ({client, data}) => {
   console.log(data)
   return new Promise((resolve, reject) => {
-    resolve({data: {
-      "type": "Collection",
-      "items": get_jobs_by_title(data.data.last_user_message)
-    }, type: "data"});
+    var res_jobs = get_jobs_by_title(data.data.last_user_message);
+
+    if (res_jobs.length > 0 ) {
+      resolve({data: {
+        "type": "Collection",
+        "items": get_jobs_by_title(data.data.last_user_message)
+      }, type: "data"});
+    } else {
+      resolve({data: "", type: "data"});
+    }
   })
 })
 

@@ -55,21 +55,19 @@ const construct_item = (job, nb) => {
        "url": job.url
        },
        {
-         "type": "text",
-        "title": "Apply " + nb
+           "type": "Button",
+           "content": "Apply " + nb,
+           "mediaType":"text/plain",
+           "name": "Apply " + nb,
+           "url": "Apply " + nb
        }
-       // {
-       //     "type": "Button",
-       //     "content": "Apply " + nb,
-       //     "name": "Apply " + nb,
-       //     "url": "action=buy&itemid=111"
-       // }
-       // , {
-       //     "type": "Button",
-       //     "content": "Decline " + nb,
-       //     "name": "Decline " + nb,
-       //     "url": "action=buy&itemid=111"
-       // }
+       , {
+         "type": "Button",
+         "content": "Decline " + nb,
+         "mediaType":"text/plain",
+         "name": "Decline " + nb,
+         "url": "Decline " + nb
+       }
 
      ]
    }

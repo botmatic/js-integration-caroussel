@@ -6,13 +6,18 @@ botmatic.onAction(".*", ({client, data}) => {
     var res_jobs = get_jobs_by_title(data.data.user['job title'], data.data.last_user_message);
 
     if (res_jobs.length > 0 ) {
-      resolve({data: {
+      var resss = {data: {
         caroussel: {
           "type": "Collection",
           "items": res_jobs
         },
         quick_replies: get_quick_replies(res_jobs.length)
-      }, type: "data"});
+      }}
+
+      console.log("resss")
+      console.log(resss)
+
+      resolve(resss, type: "data"});
     } else {
       resolve({data: "", type: "data"});
     }
@@ -26,7 +31,7 @@ const get_quick_replies = (nb) => {
   console.log('QUICK REPLIES')
 
   for (var i = 0 ; i < nb ; i++ ) {
-    tab.push("Apply " + (nb+1))
+    tab.push("Apply " + (i+1))
   }
 
   console.log("[" + tab.join(" | ") + "]")

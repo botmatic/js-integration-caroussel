@@ -24,29 +24,46 @@ const get_jobs_by_title = (title) => {
   })
 
   var final_res = []
+  var nb = 1;
 
   res.forEach((i) => {
-    final_res.push(construct_item(i))
+    final_res.push(construct_item(i, nb))
+    nb++;
   })
+
+  final_res = final_res.slice(0, 3)
 
   console.log(final_res.length)
 
   return final_res
 }
 
-const construct_item = (job) => {
+const construct_item = (job, nb) => {
    return {
      "type": "Image",
      "name": job.name,
      "content": job.content,
      "url": job.img,
-     "attachment": [{
-         "type": "Button",
-         "content": "Check",
-         "name": "check",
-         "mediaType": "text/html",
-         "url": job.url
-     }]
+     "attachment": [
+       {
+       "type": "Button",
+       "content": "Learn more",
+       "name": "Learn more",
+       "mediaType": "text/html",
+       "url": job.url
+       }, {
+           "type": "Button",
+           "content": "Apply " + nb,
+           "name": "Apply " + nb,
+           "url": "action=buy&itemid=111"
+       }
+       , {
+           "type": "Button",
+           "content": "Decline " + nb,
+           "name": "Decline " + nb,
+           "url": "action=buy&itemid=111"
+       }
+     ]
    }
 }
 

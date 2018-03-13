@@ -11,7 +11,7 @@ botmatic.onAction(".*", ({client, data}) => {
           "type": "Collection",
           "items": res_jobs
         },
-        quick_replies: get_quick_replies(res_jobs.length)
+        quick_replies: res_jobs.length
       }, type: "data"}
 
       console.log("resss")

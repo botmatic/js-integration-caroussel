@@ -53,18 +53,24 @@ const construct_item = (job, nb) => {
        "name": "Learn more",
        "mediaType": "text/html",
        "url": job.url
-       }, {
-           "type": "Button",
-           "content": "Apply " + nb,
-           "name": "Apply " + nb,
-           "url": "action=buy&itemid=111"
+       },
+       {
+         "type": "text",
+        "title": "Apply " + nb
        }
-       , {
-           "type": "Button",
-           "content": "Decline " + nb,
-           "name": "Decline " + nb,
-           "url": "action=buy&itemid=111"
-       }
+       // {
+       //     "type": "Button",
+       //     "content": "Apply " + nb,
+       //     "name": "Apply " + nb,
+       //     "url": "action=buy&itemid=111"
+       // }
+       // , {
+       //     "type": "Button",
+       //     "content": "Decline " + nb,
+       //     "name": "Decline " + nb,
+       //     "url": "action=buy&itemid=111"
+       // }
+
      ]
    }
 }
